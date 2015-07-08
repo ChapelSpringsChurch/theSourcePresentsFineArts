@@ -66,7 +66,6 @@
     // Wait for device API libraries to load
     //
     function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
         getUserInfo();
     }
 
@@ -75,60 +74,29 @@
         if(userName == null || userName == ""){
             window.location.href = 'login.html';
         }
-        document.getElementById("userName").innerHTML = "Welcome " + userName
-        // document.getElementById("mySchedule").href = "http://thesourcepresentsfinearts.com/event-by-user/" + userName
-    }
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Now safe to use device APIs
-        if(PushbotsPlugin.isiOS){
-          PushbotsPlugin.initializeiOS("550ae6241d0ab12a7f8b4573");
-        }
-        if(PushbotsPlugin.isAndroid){
-          PushbotsPlugin.initializeAndroid("550ae6241d0ab12a7f8b4573", "116332121444");
-        }
+        // document.getElementById("userName").innerHTML = "Welcome " + userName
+        var mySchedule = "http://thesourcepresentsfinearts.com/event-by-user/" + userName;
+        document.getElementById("mySchedule").href = mySchedule
+        window.open(mySchedule, "mySchedule", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=1200, height=1600");
     }
 
     </script>
 </head>
-<body onload="onLoad()">
-    <style>
-body{
-    background: #000;
-}
-    </style>
+<body onload="onLoad()" style="height:100%;background:#000;">
 
-<div id="section">
+<!-- <div id="section">
     <div class="right">
         <a href="login.html"><p id="userName"></p></a>
-        <!-- <button href="login.html" class="button">Change Name</button> -->
     </div>
+</div> -->
 
-</div>
-
-
-<div id="top" align="center">
-  <img src="http://i0.wp.com/thesourcepresentsfinearts.com/wp-content/uploads/2015/03/tSp-Mob2.png?w=100%25" width="277" height="27" title="">
-</div>
+    
+    <iframe src="" name="mySchedule" id="mySchedule" style="min-height:90%;width:100%;"></iframe>
 
 
-<div id="section" align="center">
-    <p>
-        <a href="myschedule.html" id="mySchedule" target="_self" style="" class="button ">MY SCHEDULE</a>
-    </p>
-    <p>
-        <a href="http://thesourcepresentsfinearts.com/events" target="_blank" style="" class="button ">GLOBAL SCHEDULE</a>
-    </p>
-    <p>
-        <a href="http://thesourcepresentsfinearts.com" id="customSchedule" target="_blank" style="" class="button ">CUSTOM SCHEDULE</a>
-    </p>
-    <p>
-        <a href="http://thesourcepresentsfinearts.com" target="_blank" style="" class="button ">WEBSITE</a>
-    </p>
-    <p style="font-size:.7em">use <strong>#theSOURCEpresents</strong> on all your social posts!</p>
-</div>
+   <footer id="footer" style="background:#000;position: fixed; bottom: 0;left: 0;right: 0;height: 50px;">
+        <div id="section">custom footer will go here!!!!!</div>
+   </footer>
     </body>
 
 </html>
